@@ -18,7 +18,7 @@ class PetsController < ApplicationController
       @owner =  Owner.create(params["owner"])
       @owner.pets << @pet
       @pet.owner_id = @owner.id
-      
+
     end
 
     @pet.save
