@@ -4,6 +4,10 @@
   <label>name:</label>
     <input  type="text" name="pet_name" id="pet_name"></input>
   <br>
+  <h3>Existing owners</h3>
+  <% @owners.each do |owner| %>
+    <input type="radio" name="owner_name" id="<%= owner.id %>" value="<%= owner.id %>"><%= owner.name %></input><br>
+  <% end %>
 
   <input type="submit" value="Create Pet">
 </form>
