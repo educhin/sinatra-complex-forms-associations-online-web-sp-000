@@ -49,6 +49,8 @@ class PetsController < ApplicationController
       @owner.save
       @pet.owner_id = @owner.id
       @pet.save
+    else
+      @pet.owner_id = Owner.find(params["owner"]).id
     end
     redirect to "pets/#{@pet.id}"
   end
