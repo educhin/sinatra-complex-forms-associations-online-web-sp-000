@@ -41,6 +41,7 @@ class PetsController < ApplicationController
 
     if !params["pet"]["name"].empty?
       @pet.name = params["pet"]["name"]
+      @pet.save
     end
 
     if !params["owner"]["name"].empty?
