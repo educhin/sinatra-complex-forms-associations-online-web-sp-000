@@ -6,6 +6,7 @@ class OwnersController < ApplicationController
   end
 
   get '/owners/new' do
+    @pets = Pet.all
     erb :'/owners/new'
   end
 
@@ -28,11 +29,9 @@ class OwnersController < ApplicationController
   end
 
   patch '/owners/:id' do
-    ####### bug fix
     if !params[:owner].keys.include?("pet_ids")
     params[:owner]["pet_ids"] = []
     end
-    #######
 
     @owner = Owner.find(params[:id])
     @owner.update(params["owner"])
